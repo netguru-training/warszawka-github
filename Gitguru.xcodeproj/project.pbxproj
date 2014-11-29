@@ -12,6 +12,7 @@
 		3A550FDD1A29D8180090E3AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A550FDC1A29D7DD0090E3AA /* main.m */; };
 		3A550FE01A29D8420090E3AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A550FDF1A29D8420090E3AA /* Images.xcassets */; };
 		3A550FE21A29D8660090E3AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A550FE11A29D8660090E3AA /* Main.storyboard */; };
+		45E520931A29D95D0054E2E8 /* NGRRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E520921A29D95D0054E2E8 /* NGRRepo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		3A550FDC1A29D7DD0090E3AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A550FDF1A29D8420090E3AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A550FE11A29D8660090E3AA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		45E520911A29D95D0054E2E8 /* NGRRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRRepo.h; sourceTree = "<group>"; };
+		45E520921A29D95D0054E2E8 /* NGRRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRRepo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				3A550FB41A29D73D0090E3AA /* NGRAppDelegate.m */,
 				3A550FD51A29D7920090E3AA /* NGRReposViewController.h */,
 				3A550FD61A29D7920090E3AA /* NGRReposViewController.m */,
+				45E520911A29D95D0054E2E8 /* NGRRepo.h */,
+				45E520921A29D95D0054E2E8 /* NGRRepo.m */,
 			);
 			path = Gitguru;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A550FB51A29D73D0090E3AA /* NGRAppDelegate.m in Sources */,
+				45E520931A29D95D0054E2E8 /* NGRRepo.m in Sources */,
 				3A550FDD1A29D8180090E3AA /* main.m in Sources */,
 				3A550FD71A29D7920090E3AA /* NGRReposViewController.m in Sources */,
 			);
