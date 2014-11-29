@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3A550FB51A29D73D0090E3AA /* NGRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A550FB41A29D73D0090E3AA /* NGRAppDelegate.m */; };
-		3A550FD71A29D7920090E3AA /* NGRReposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A550FD61A29D7920090E3AA /* NGRReposViewController.m */; };
 		3A550FDD1A29D8180090E3AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A550FDC1A29D7DD0090E3AA /* main.m */; };
 		3A550FE01A29D8420090E3AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A550FDF1A29D8420090E3AA /* Images.xcassets */; };
 		3A550FE21A29D8660090E3AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A550FE11A29D8660090E3AA /* Main.storyboard */; };
+		45CA1C101A29DBFC00F45E12 /* NGRReposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CA1C0F1A29DBFC00F45E12 /* NGRReposViewController.m */; };
 		45E520931A29D95D0054E2E8 /* NGRRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E520921A29D95D0054E2E8 /* NGRRepo.m */; };
 /* End PBXBuildFile section */
 
@@ -19,12 +19,12 @@
 		3A550FAC1A29D73D0090E3AA /* Gitguru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitguru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A550FB31A29D73D0090E3AA /* NGRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGRAppDelegate.h; sourceTree = "<group>"; };
 		3A550FB41A29D73D0090E3AA /* NGRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGRAppDelegate.m; sourceTree = "<group>"; };
-		3A550FD51A29D7920090E3AA /* NGRReposViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRReposViewController.h; sourceTree = "<group>"; };
-		3A550FD61A29D7920090E3AA /* NGRReposViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRReposViewController.m; sourceTree = "<group>"; };
 		3A550FDB1A29D7DD0090E3AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A550FDC1A29D7DD0090E3AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A550FDF1A29D8420090E3AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A550FE11A29D8660090E3AA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		45CA1C0E1A29DBFC00F45E12 /* NGRReposViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRReposViewController.h; sourceTree = "<group>"; };
+		45CA1C0F1A29DBFC00F45E12 /* NGRReposViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRReposViewController.m; sourceTree = "<group>"; };
 		45E520911A29D95D0054E2E8 /* NGRRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRRepo.h; sourceTree = "<group>"; };
 		45E520921A29D95D0054E2E8 /* NGRRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRRepo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,10 +63,10 @@
 			children = (
 				3A550FB31A29D73D0090E3AA /* NGRAppDelegate.h */,
 				3A550FB41A29D73D0090E3AA /* NGRAppDelegate.m */,
-				3A550FD51A29D7920090E3AA /* NGRReposViewController.h */,
-				3A550FD61A29D7920090E3AA /* NGRReposViewController.m */,
 				45E520911A29D95D0054E2E8 /* NGRRepo.h */,
 				45E520921A29D95D0054E2E8 /* NGRRepo.m */,
+				45CA1C0E1A29DBFC00F45E12 /* NGRReposViewController.h */,
+				45CA1C0F1A29DBFC00F45E12 /* NGRReposViewController.m */,
 			);
 			path = Gitguru;
 			sourceTree = "<group>";
@@ -160,8 +160,8 @@
 			files = (
 				3A550FB51A29D73D0090E3AA /* NGRAppDelegate.m in Sources */,
 				45E520931A29D95D0054E2E8 /* NGRRepo.m in Sources */,
+				45CA1C101A29DBFC00F45E12 /* NGRReposViewController.m in Sources */,
 				3A550FDD1A29D8180090E3AA /* main.m in Sources */,
-				3A550FD71A29D7920090E3AA /* NGRReposViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
