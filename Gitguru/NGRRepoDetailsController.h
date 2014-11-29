@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NGRRepoDetailsController : UIViewController
+@interface NGRRepoDetailsController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

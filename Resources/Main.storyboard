@@ -34,6 +34,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="h2m-5U-A35" kind="show" id="PgY-n9-vo7"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -61,10 +64,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9ag-ha-trK">
-                                <rect key="frame" x="0.0" y="134" width="600" height="466"/>
+                                <rect key="frame" x="0.0" y="178" width="600" height="422"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="wZF-7z-5xD" detailTextLabel="Stu-bd-ujG" style="IBUITableViewCellStyleValue1" id="RW8-xG-mFV">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ParamCell" textLabel="wZF-7z-5xD" detailTextLabel="Stu-bd-ujG" style="IBUITableViewCellStyleValue1" id="RW8-xG-mFV">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RW8-xG-mFV" id="N1V-9k-amS">
@@ -92,7 +95,7 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eBv-C3-Hyq">
-                                <rect key="frame" x="20" y="40" width="64" height="64"/>
+                                <rect key="frame" x="20" y="84" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eBv-C3-Hyq" secondAttribute="height" multiplier="1:1" id="S0c-qt-WE1"/>
                                     <constraint firstAttribute="height" constant="64" id="gPM-XC-CGv"/>
@@ -100,7 +103,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoR-tt-u8v">
-                                <rect key="frame" x="104" y="56" width="66" height="32"/>
+                                <rect key="frame" x="104" y="100" width="66" height="32"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>

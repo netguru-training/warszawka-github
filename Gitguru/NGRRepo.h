@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Netguru Sp. z o.o. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NGRRepo : NSObject
 
@@ -15,5 +15,7 @@
 @property NSString *owner;
 @property NSURL *htmlURL;
 @property NSString *name;
+@property UIImage *ownerAvatar;
+@property NSString *language;
 
 @end
