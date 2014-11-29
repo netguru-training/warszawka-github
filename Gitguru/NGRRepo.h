@@ -10,6 +10,8 @@
 
 @interface NGRRepo : NSObject
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 @property NSString *owner;
 @property NSURL *htmlURL;
 @property NSString *name;

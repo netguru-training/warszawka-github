@@ -10,4 +10,13 @@
 
 @implementation NGRRepo
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        self.name = dictionary[@"name"];
+        self.owner = dictionary[@"owner"][@"login"];
+    }
+    return self;
+}
+
 @end
