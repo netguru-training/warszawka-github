@@ -7,8 +7,11 @@
 //
 
 #import "NGRReposViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface NGRReposViewController ()
+
+@property NSArray *repos;
 
 @end
 
@@ -24,6 +27,19 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"https://api.github.com/orgs/netguru-training/repos" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.repos = responseObject;
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -37,17 +53,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [self.repos count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RepoCell" forIndexPath:indexPath];
-    cell.textLabel.text = @"lorem";
-    cell.detailTextLabel.text = @"ipsum";
-    
+    cell.textLabel.text = self.repos[indexPath.row][@"name"];
+    cell.detailTextLabel.text = self.repos[indexPath.row][@"owner"][@"login"];
     return cell;
 }
+
 
 
 /*
