@@ -124,6 +124,7 @@
                     </view>
                     <connections>
                         <outlet property="avatarImageView" destination="eBv-C3-Hyq" id="e1N-O5-zX3"/>
+                        <outlet property="propertiesTableView" destination="9ag-ha-trK" id="49t-SA-w0d"/>
                         <outlet property="titleLabel" destination="CoR-tt-u8v" id="nv0-kC-20w"/>
                     </connections>
                 </viewController>
