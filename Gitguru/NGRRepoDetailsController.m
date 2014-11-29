@@ -9,19 +9,23 @@
 #import "NGRRepoDetailsController.h"
 
 @interface NGRRepoDetailsController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @end
 
 @implementation NGRRepoDetailsController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+    self.titleLabel.text = self.repo.name;
+    self.title = self.repo.name;
+    __weak typeof(self) weak_self = self;
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.repo fetchOwnerAvatar:^(UIImage *image, NSError *error) {
+        if(!error){
+            weak_self.avatarImageView.image = image;
+        }
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NGRRepo.h"
 
 @interface NGRRepoDetailsController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
+@property (strong, nonatomic) NGRRepo *repo;
 @end

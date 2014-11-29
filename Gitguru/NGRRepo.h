@@ -15,7 +15,8 @@
 @property NSString *owner;
 @property NSURL *htmlURL;
 @property NSString *name;
-@property UIImage *ownerAvatar;
 @property NSString *language;
+
+- (void)fetchOwnerAvatar:(void (^)(UIImage *, NSError *))block;
 
 @end

@@ -35,7 +35,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="h2m-5U-A35" kind="show" id="PgY-n9-vo7"/>
+                                    <segue destination="h2m-5U-A35" kind="show" identifier="showRepoDetails" id="PgY-n9-vo7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -122,6 +122,10 @@
                             <constraint firstItem="CoR-tt-u8v" firstAttribute="leading" secondItem="eBv-C3-Hyq" secondAttribute="trailing" constant="20" id="vTE-4P-hae"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="eBv-C3-Hyq" id="e1N-O5-zX3"/>
+                        <outlet property="titleLabel" destination="CoR-tt-u8v" id="nv0-kC-20w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="92v-YN-wlZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
