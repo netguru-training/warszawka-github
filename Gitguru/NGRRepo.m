@@ -23,6 +23,8 @@
         self.language = dictionary[@"language"];
         self.htmlURL = dictionary[@"html_url"];
         self.ownerAvatarUrl = dictionary[@"owner"][@"avatar_url"];
+        self.starsCount = ((NSNumber *)(dictionary[@"stargazers_count"])).unsignedIntegerValue;
+        self.forksCount = ((NSNumber *) (dictionary[@"forks"])).unsignedIntegerValue;
     }
     return self;
 }

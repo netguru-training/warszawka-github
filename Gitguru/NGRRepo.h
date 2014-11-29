@@ -15,7 +15,10 @@
 @property NSString *owner;
 @property NSURL *htmlURL;
 @property NSString *name;
+
 @property NSString *language;
+@property NSUInteger starsCount;
+@property NSUInteger forksCount;
 
 - (void)fetchOwnerAvatar:(void (^)(UIImage *, NSError *))block;
 
