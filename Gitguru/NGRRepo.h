@@ -13,7 +13,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @property NSString *owner;
-@property NSURL *htmlURL;
+@property NSString *htmlURL;
 @property NSString *name;
 
 @property NSString *language;

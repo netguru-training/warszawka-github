@@ -51,7 +51,7 @@
             </objects>
             <point key="canvasLocation" x="797" y="360"/>
         </scene>
-        <!--Repo Details Controller-->
+        <!--Title-->
         <scene sceneID="uP6-cz-5ed">
             <objects>
                 <viewController id="h2m-5U-A35" customClass="NGRRepoDetailsController" sceneMemberID="viewController">
@@ -122,6 +122,14 @@
                             <constraint firstItem="CoR-tt-u8v" firstAttribute="leading" secondItem="eBv-C3-Hyq" secondAttribute="trailing" constant="20" id="vTE-4P-hae"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="9rf-cH-a2Z">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="hTa-BV-OEc">
+                            <connections>
+                                <action selector="didTapActionButton:" destination="h2m-5U-A35" id="CuC-zc-6YX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="avatarImageView" destination="eBv-C3-Hyq" id="e1N-O5-zX3"/>
                         <outlet property="propertiesTableView" destination="9ag-ha-trK" id="49t-SA-w0d"/>

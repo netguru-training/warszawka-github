@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *propertiesTableView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+- (IBAction)didTapActionButton:(id)sender;
 @property (strong, nonatomic) NSDictionary *properties;
 @end
 
@@ -50,4 +51,7 @@
 }
 
 
+- (IBAction)didTapActionButton:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.repo.htmlURL]];
+}
 @end
