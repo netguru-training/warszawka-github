@@ -42,6 +42,9 @@
                                                 <rect key="frame" x="112" y="62" width="448" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="7CT-9X-a2t" id="tfY-bC-F1B"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search users" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbA-dA-AZE">
                                                 <rect key="frame" x="0.0" y="71" width="102" height="21"/>
@@ -90,6 +93,7 @@
                         <outlet property="reposSearchTextField" destination="liO-WV-yPn" id="vS4-87-Jnt"/>
                         <outlet property="usersSearchTextField" destination="Erk-Db-MRm" id="QbJ-Aa-uip"/>
                         <segue destination="8dc-gZ-w4Q" kind="show" identifier="showRepoSearchResults" id="XNN-8Z-P5F"/>
+                        <segue destination="rio-vU-8M0" kind="show" identifier="showUserSearchResults" id="mii-M9-SWD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEK-LI-LFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -140,6 +144,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBa-iU-ygO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="797" y="360"/>
+        </scene>
+        <!--Users-->
+        <scene sceneID="vdf-AX-kzP">
+            <objects>
+                <tableViewController title="Users" id="rio-vU-8M0" customClass="NGRUsersViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NRI-oA-ADR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" textLabel="5ga-KZ-qD0" detailTextLabel="uDn-rf-8wH" style="IBUITableViewCellStyleSubtitle" id="R4w-Vc-Xe3">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R4w-Vc-Xe3" id="NOp-Hm-ZPh">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5ga-KZ-qD0">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uDn-rf-8wH">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rio-vU-8M0" id="sHR-jx-Sut"/>
+                            <outlet property="delegate" destination="rio-vU-8M0" id="rQq-wO-UX4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Users" id="Te1-XY-Kqp"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqa-VD-meJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="1069"/>
         </scene>
         <!--Title-->
         <scene sceneID="uP6-cz-5ed">
