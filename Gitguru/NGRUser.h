@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NGRUser : NSObject
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (void)fetchAvatar:(void (^)(UIImage *, NSError *))block;
 
 @property NSString *name;
 @property NSString *email;
+@property NSMutableArray *repos;
 
 @end

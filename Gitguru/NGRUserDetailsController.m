@@ -9,6 +9,7 @@
 #import "NGRUserDetailsController.h"
 
 @interface NGRUserDetailsController ()
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 
 @end
 
@@ -16,8 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.titleLabel.text = self.user.name;
     self.title = self.user.name;
+    __weak typeof(self) weak_self = self;
+    
+    [self.user fetchAvatar:^(UIImage *image, NSError *error) {
+        if(!error){
+            weak_self.avatarImageView.image = image;
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,6 +33,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RepoCell" forIndexPath:indexPath];
+    
     return cell;
 }
 

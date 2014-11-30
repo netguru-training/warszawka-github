@@ -39,6 +39,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserCell" forIndexPath:indexPath];
     NGRUser *user = self.users[indexPath.row];
     cell.textLabel.text = user.name;
+    
     cell.detailTextLabel.text = user.email;
     
     return cell;
