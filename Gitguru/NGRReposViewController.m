@@ -13,8 +13,6 @@
 
 @interface NGRReposViewController ()
 
-@property NSMutableArray *repos;
-
 @end
 
 @implementation NGRReposViewController
@@ -27,23 +25,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"https://api.github.com/orgs/netguru-training/repos" parameters:nil success:^(AFHTTPRequestOperation *operation, NSArray *responseObject) {
-        self.repos = [[NSMutableArray alloc] initWithCapacity:responseObject.count];
-        for (NSDictionary *dictionary in responseObject) {
-            NGRRepo *repo = [[NGRRepo alloc] initWithDictionary:dictionary];
-            [self.repos addObject:repo];
-        }
-        [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,4 +10,6 @@
 
 @interface NGRReposViewController : UITableViewController
 
+@property NSMutableArray *repos;
+
 @end
