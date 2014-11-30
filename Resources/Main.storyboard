@@ -193,6 +193,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="KUg-ZV-aqd" kind="show" identifier="showUserDetails" id="iyA-gz-JjS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -310,6 +313,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AjW-XO-aN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-609" y="360"/>
+        </scene>
+        <!--User-->
+        <scene sceneID="Qzz-kR-bFD">
+            <objects>
+                <viewController title="User" id="KUg-ZV-aqd" customClass="NGRUserDetailsController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hFk-Sw-RuZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ow6-td-hRl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0zH-aC-B9g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YP1-Py-vWP">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="0dh-s9-xeY" style="IBUITableViewCellStyleDefault" id="ntj-ZL-fQd">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ntj-ZL-fQd" id="EMe-ai-1hy">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0dh-s9-xeY">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YP1-Py-vWP" firstAttribute="leading" secondItem="0zH-aC-B9g" secondAttribute="leading" id="AUf-dz-JlG"/>
+                            <constraint firstAttribute="trailing" secondItem="YP1-Py-vWP" secondAttribute="trailing" id="RfE-ib-m7w"/>
+                            <constraint firstItem="ow6-td-hRl" firstAttribute="top" secondItem="YP1-Py-vWP" secondAttribute="bottom" id="VZa-le-XUt"/>
+                            <constraint firstItem="YP1-Py-vWP" firstAttribute="top" secondItem="hFk-Sw-RuZ" secondAttribute="bottom" id="cSr-i0-lOs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kbi-xm-DgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797" y="1069"/>
         </scene>
     </scenes>
 </document>
