@@ -22,10 +22,10 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4n1-Fq-484">
-                                        <rect key="frame" x="20" y="253" width="560" height="30"/>
+                                        <rect key="frame" x="20" y="222" width="560" height="92"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search repos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-wZ-7U8">
-                                                <rect key="frame" x="0.0" y="0.0" width="102" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="102" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -38,14 +38,31 @@
                                                     <outlet property="delegate" destination="7CT-9X-a2t" id="pEr-SB-Iv6"/>
                                                 </connections>
                                             </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Erk-Db-MRm">
+                                                <rect key="frame" x="112" y="62" width="448" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search users" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbA-dA-AZE">
+                                                <rect key="frame" x="0.0" y="71" width="102" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.15806390109999999" green="0.76623658459999999" blue="0.62788808659999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="liO-WV-yPn" firstAttribute="leading" secondItem="zWg-wZ-7U8" secondAttribute="trailing" constant="10" id="0ER-K5-hD1"/>
-                                            <constraint firstAttribute="bottom" secondItem="zWg-wZ-7U8" secondAttribute="bottom" id="HII-9S-nlg"/>
-                                            <constraint firstAttribute="bottom" secondItem="liO-WV-yPn" secondAttribute="bottom" id="W67-68-oUi"/>
+                                            <constraint firstItem="vbA-dA-AZE" firstAttribute="width" secondItem="zWg-wZ-7U8" secondAttribute="width" id="HOP-Gn-NQX"/>
+                                            <constraint firstAttribute="bottom" secondItem="vbA-dA-AZE" secondAttribute="bottom" id="JpV-Sg-At1"/>
                                             <constraint firstAttribute="trailing" secondItem="liO-WV-yPn" secondAttribute="trailing" id="YDE-bD-O5r"/>
+                                            <constraint firstAttribute="bottom" secondItem="Erk-Db-MRm" secondAttribute="bottom" id="YOp-h6-eQn"/>
                                             <constraint firstItem="zWg-wZ-7U8" firstAttribute="leading" secondItem="4n1-Fq-484" secondAttribute="leading" id="jBV-3P-vdu"/>
+                                            <constraint firstItem="Erk-Db-MRm" firstAttribute="leading" secondItem="vbA-dA-AZE" secondAttribute="trailing" constant="10" id="os0-3K-ppp"/>
+                                            <constraint firstItem="vbA-dA-AZE" firstAttribute="top" secondItem="zWg-wZ-7U8" secondAttribute="bottom" constant="50" id="q5S-4q-e5t"/>
+                                            <constraint firstItem="vbA-dA-AZE" firstAttribute="centerY" secondItem="Erk-Db-MRm" secondAttribute="centerY" constant="4.5" id="qGQ-V5-Cec"/>
+                                            <constraint firstAttribute="trailing" secondItem="Erk-Db-MRm" secondAttribute="trailing" id="r1F-B3-goq"/>
+                                            <constraint firstItem="vbA-dA-AZE" firstAttribute="leading" secondItem="4n1-Fq-484" secondAttribute="leading" id="wNh-Kl-GLq"/>
                                             <constraint firstItem="zWg-wZ-7U8" firstAttribute="top" secondItem="4n1-Fq-484" secondAttribute="top" id="ypm-Zo-0Ei"/>
                                             <constraint firstItem="liO-WV-yPn" firstAttribute="top" secondItem="4n1-Fq-484" secondAttribute="top" id="zAb-Qf-J4g"/>
                                         </constraints>
@@ -70,7 +87,8 @@
                     <navigationItem key="navigationItem" id="J7L-J5-7KN"/>
                     <connections>
                         <outlet property="bottomConstraint" destination="8ZG-yb-CCJ" id="vgL-yz-4IJ"/>
-                        <outlet property="searchTextField" destination="liO-WV-yPn" id="e1A-cT-5cN"/>
+                        <outlet property="reposSearchTextField" destination="liO-WV-yPn" id="vS4-87-Jnt"/>
+                        <outlet property="usersSearchTextField" destination="Erk-Db-MRm" id="QbJ-Aa-uip"/>
                         <segue destination="8dc-gZ-w4Q" kind="show" identifier="showRepoSearchResults" id="XNN-8Z-P5F"/>
                     </connections>
                 </viewController>
