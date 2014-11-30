@@ -34,6 +34,8 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:error.userInfo[NSLocalizedDescriptionKey] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
     }];
     
 }
