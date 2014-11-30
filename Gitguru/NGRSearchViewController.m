@@ -8,14 +8,17 @@
 
 #import "NGRSearchViewController.h"
 #import "NGRReposViewController.h"
+#import "NGRUsersViewController.h"
 #import "NGRRepo.h"
+#import "NGRUser.h"
 #import <AFNetworking/AFNetworking.h>
 
 @interface NGRSearchViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@property (weak, nonatomic) IBOutlet UITextField *reposSearchTextField;
+@property (weak, nonatomic) IBOutlet UITextField *usersSearchTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
-@property NSMutableArray *repos;
+@property NSMutableArray *items;
 
 @end
 
@@ -26,28 +29,45 @@
     [self registerForKeyboardNotifications];
 }
 
-- (void)buildRequest {
-    NSDictionary *params = @{ @"q" : self.searchTextField.text };
+- (void)executeSearchRequestWithPath:(NSString *)path query:(NSString *)query modelClass:(Class)aClass segueIdentifier: (NSString *)segueIdentifier {
+    NSDictionary *params = @{ @"q": query };
+    NSString *url = [ NSString stringWithFormat:@"https://api.github.com/search/%@", path ];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"https://api.github.com/search/repositories" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+    [manager GET:url parameters:params success:^
+    (AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         NSArray *items = responseObject[@"items"];
-        self.repos = [[NSMutableArray alloc] initWithCapacity:items.count];
+        self.items = [[NSMutableArray alloc] initWithCapacity:items.count];
         for (NSDictionary *dictionary in items) {
-            NGRRepo *repo = [[NGRRepo alloc] initWithDictionary:dictionary];
-            [self.repos addObject:repo];
+            id item = [[aClass alloc] initWithDictionary:dictionary];
+            [self.items addObject:item];
         }
-        [self performSegueWithIdentifier:@"showRepoSearchResults" sender:self.searchTextField];
+        [self performSegueWithIdentifier:segueIdentifier sender:self];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:error.userInfo[NSLocalizedDescriptionKey] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }];
-    
+
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self buildRequest];
+    Class aClass = Nil;
+    NSString *path = @"";
+    NSString *segueIdentifier = @"";
+    
+    if (textField == self.reposSearchTextField) {
+        aClass = [NGRRepo class];
+        path = @"repositories";
+        segueIdentifier = @"showRepoSearchResults";
+    }
+    else {
+        aClass = [NGRUser class];
+        path = @"users";
+        segueIdentifier = @"showUserSearchResults";
+    }
+    [self executeSearchRequestWithPath:path query: textField.text modelClass:aClass segueIdentifier:segueIdentifier];
+
     return YES;
 }
 
@@ -55,7 +75,11 @@
     UIViewController *destinationController = [segue destinationViewController];
     if([segue.identifier isEqualToString:@"showRepoSearchResults"]) {
         NGRReposViewController *reposController = (NGRReposViewController *)destinationController;
-        reposController.repos = self.repos;
+        reposController.repos = self.items;
+    }
+    else if ([segue.identifier isEqualToString:@"showUserSearchResults"]) {
+        NGRUsersViewController *usersController = (NGRUsersViewController*)destinationController;
+        usersController.users = self.items;
     }
 }
 
