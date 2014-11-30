@@ -12,6 +12,8 @@
 #import "NGRRepoDetailsController.h"
 
 @interface NGRReposViewController ()
+@property (weak, nonatomic) IBOutlet UISearchBar *itemsSearchBar;
+@property NSArray *itemSearchResults;
 
 @end
 
@@ -32,7 +34,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    
+    NSPredicate *resultPredicate = [NSPredicate
+                                    predicateWithFormat:@"name CONTAINS[cd] %@", searchText];
+    
+    self.itemSearchResults = [self.items filteredArrayUsingPredicate:resultPredicate];
+
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
@@ -40,15 +61,34 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.repos count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.itemSearchResults count];
+    } else {
+        return [self.items count];
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RepoCell" forIndexPath:indexPath];
-    NGRRepo *repo = self.repos[indexPath.row];
-    cell.textLabel.text = repo.name;
-    cell.detailTextLabel.text = repo.owner;
+    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"RepoCell" forIndexPath:indexPath];
+//    NGRRepo *repo = self.items[indexPath.row];
+//    cell.textLabel.text = repo.name;
+//    cell.detailTextLabel.text = repo.owner;
+//    
+//    return cell;
+    
+    NGRRepo *repo = nil;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        repo = self.itemSearchResults[indexPath.row];
+        cell.textLabel.text = repo.name;
+        cell.detailTextLabel.text = repo.owner;
+    } else {
+        repo = self.items[indexPath.row];
+        cell.textLabel.text = repo.name;
+        cell.detailTextLabel.text = repo.owner;
+    }
     
     return cell;
 }
@@ -57,9 +97,16 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"showRepoDetails"]) {
         UITableViewCell *cell = sender;
-        NSInteger cellIndex = [[self.tableView indexPathForCell:cell] row];
+        
         NGRRepoDetailsController *repoViewController = segue.destinationViewController;
-        repoViewController.repo = self.repos[cellIndex];
+        
+        if ([self.tableView indexPathForCell:cell] != nil) {
+            NSInteger cellIndex = [[self.tableView indexPathForCell:cell] row];
+            repoViewController.repo = self.items[cellIndex];
+        } else {
+            NSInteger cellIndex = [[self.searchDisplayController.searchResultsTableView indexPathForCell:cell] row];
+            repoViewController.repo = self.itemSearchResults[cellIndex];
+        }
     }
 }
 

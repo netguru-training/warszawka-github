@@ -75,7 +75,7 @@
     UIViewController *destinationController = [segue destinationViewController];
     if([segue.identifier isEqualToString:@"showRepoSearchResults"]) {
         NGRReposViewController *reposController = (NGRReposViewController *)destinationController;
-        reposController.repos = self.items;
+        reposController.items = self.items;
     }
     else if ([segue.identifier isEqualToString:@"showUserSearchResults"]) {
         NGRUsersViewController *usersController = (NGRUsersViewController*)destinationController;
