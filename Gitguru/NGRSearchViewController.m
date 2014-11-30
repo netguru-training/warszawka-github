@@ -14,11 +14,17 @@
 @interface NGRSearchViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property NSMutableArray *repos;
 
 @end
 
 @implementation NGRSearchViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self registerForKeyboardNotifications];
+}
 
 - (void)buildRequest {
     NSDictionary *params = @{ @"q" : self.searchTextField.text };
@@ -53,6 +59,26 @@
     }
 }
 
+- (void)registerForKeyboardNotifications {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillChangeFrame:)
+                                                 name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
 
+- (void)keyboardWillChangeFrame:(NSNotification *)notification {
+    NSValue *frame = notification.userInfo[@"UIKeyboardFrameEndUserInfoKey"];
+    CGRect rect = [frame CGRectValue];
+    CGFloat height = rect.size.height;
+    
+    self.bottomConstraint.constant = height;
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    self.bottomConstraint.constant = 0;
+}
 
 @end

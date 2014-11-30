@@ -69,6 +69,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="J7L-J5-7KN"/>
                     <connections>
+                        <outlet property="bottomConstraint" destination="8ZG-yb-CCJ" id="vgL-yz-4IJ"/>
                         <outlet property="searchTextField" destination="liO-WV-yPn" id="e1A-cT-5cN"/>
                         <segue destination="8dc-gZ-w4Q" kind="show" identifier="showRepoSearchResults" id="XNN-8Z-P5F"/>
                     </connections>
